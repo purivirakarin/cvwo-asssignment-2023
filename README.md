@@ -6,8 +6,8 @@
 
 ## Timeline
 
-December
+December <br/>
 Learn: JS, TS, React.js, GO, mantine, tailwind
 
-January
+January <br/>
 Working: on the project
