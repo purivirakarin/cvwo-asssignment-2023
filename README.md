@@ -7,7 +7,7 @@
 ## Timeline
 
 December
-Learn JS, TS, React.js, GO, mantine, tailwind
+Learn: JS, TS, React.js, GO, mantine, tailwind
 
 January
-Working on the project
+Working: on the project
