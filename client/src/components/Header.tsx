@@ -9,6 +9,7 @@ import {
   Menu,
   Tabs,
   Burger,
+  Badge,
 } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
 import {
@@ -22,7 +23,7 @@ import {
   IconSwitchHorizontal,
   IconChevronDown,
 } from '@tabler/icons';
-import { MantineLogo } from '@mantine/ds';
+import { Link, useMatch, useResolvedPath  } from "react-router-dom"
 
 const useStyles = createStyles((theme) => ({
   header: {
@@ -109,7 +110,10 @@ export function HeaderTabs({ user, tabs }: HeaderTabsProps) {
     <div className={classes.header} >
       <Container className={classes.mainSection} >
         <Group position="apart">
-          <MantineLogo size={28} />
+          <Badge color="#7AD1DD" sx={{
+            padding: 17,
+            fontSize: 14,
+          }}>Webforum</Badge>
 
           <Burger opened={opened} onClick={toggle} className={classes.burger} size="sm" />
 
@@ -179,4 +183,19 @@ export function HeaderTabs({ user, tabs }: HeaderTabsProps) {
       </Container>
     </div>
   );
+}
+
+interface CustomLinkProps {
+  to: string;
+  children: string;
+}
+
+function CustomLink({ to , children , ...props }: CustomLinkProps) {
+  const resolvedPath = useResolvedPath(to)
+  const isActive = useMatch({ path: resolvedPath.pathname, end: true})
+  return (
+      <li className={isActive ? "active" : ""}>
+          <Link to={to} {...props}>{children}</Link>
+      </li>
+  )
 }
