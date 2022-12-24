@@ -12,8 +12,10 @@
     "@mantine/core": "^5.9.5",
     "@mantine/ds": "^5.9.5",
     "@mantine/hooks": "^5.9.5",
+    "@mantine/prism": "^5.9.5",
     "@primer/octicons-react": "^17.10.0",
     "@tabler/icons": "^1.117.0",
+    "antd": "^5.1.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "swr": "^2.0.0"
