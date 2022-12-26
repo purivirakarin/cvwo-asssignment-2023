@@ -187,15 +187,17 @@ export function HeaderTabs({ user, tabs }: HeaderTabsProps) {
 
 interface CustomLinkProps {
   to: string;
-  children: string;
+  tabs: string[];
 }
 
-function CustomLink({ to , children , ...props }: CustomLinkProps) {
+function CustomLink({ to , tabs , ...props }: CustomLinkProps) {
   const resolvedPath = useResolvedPath(to)
   const isActive = useMatch({ path: resolvedPath.pathname, end: true})
   return (
-      <li className={isActive ? "active" : ""}>
-          <Link to={to} {...props}>{children}</Link>
-      </li>
-  )
+    tabs.map((tab) => (
+      <Tabs.Tab value={tab} key={tab} className={isActive ? "active" : ""}>
+        {tab}
+      </Tabs.Tab>
+    )
+  ))
 }
