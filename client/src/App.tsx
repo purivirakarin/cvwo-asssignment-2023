@@ -1,7 +1,7 @@
 import './App.css'
 import { Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
-import Menu from './pages/Menu'
+import Menu from './pages/SinglePost'
 import Settings from './pages/Settings';
 import Navbar from './pages/Navbar';
 import { Box } from "@mui/material";
