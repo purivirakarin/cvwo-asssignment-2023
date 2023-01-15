@@ -38,3 +38,21 @@ VALUES
 SELECT * FROM Users
 RIGHT JOIN Rooms
 ON Rooms.owner_id = Users.id;
+
+
+-- @block
+CREATE TABLE `employee` (
+  `id` int(11) NOT NULL,
+  `name` varchar(40) NOT NULL,
+  `city` varchar(40) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+
+-- @block
+DROP TABLE IF EXISTS `employee`;
+CREATE TABLE `employee` (
+  `id` int(6) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(30) NOT NULL,
+  `city` varchar(30) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
