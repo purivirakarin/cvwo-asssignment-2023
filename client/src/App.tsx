@@ -1,32 +1,31 @@
-import './App.css'
-import { Routes, Route } from 'react-router-dom';
-import Home from './pages/Home';
-import Menu from './pages/SinglePost'
-import Settings from './pages/Settings';
-import Navbar from './pages/Navbar';
-import { Box } from "@mui/material";
-import { useSelector } from "react-redux";
-
-
+import React from "react";
+import Register from "./components/register";
+import SnackbarProvider from "react-simple-snackbar";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import Login from "./components/Login";
+import Home from "./components/Home";
+import CreateBlog from "./components/CreateBlog";
+import Navbar from "./components/Navbar";
+import BlogDetail from "./components/BlogDetails";
+import PersonalBlog from "./components/PersonalBlog";
+import EditPost from "./components/EditPost";
 function App() {
-  // const { user } = useSelector((state:any) => {
-  //   return {
-  //     user: state.currentUser,
-  //   };
-  // });
-
   return (
-    <Box>
-      {/* <Navbar user={user}/> */}
-      <div className="container">
+    <div className="">
+      <SnackbarProvider>
+        <Navbar />
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/menu" element={<Menu />} />
-          <Route path="/settings" element={<Settings />} />
+          <Route exact path="/" element={<Home />} />
+          <Route exact path="/register" element={<Register />} />
+          <Route exact path="/login" element={<Login />} />
+          <Route exact path="/create" element={<CreateBlog />} />
+          <Route exact path="/detail/:id" element={<BlogDetail />} />
+          <Route exact path="/personal" element={<PersonalBlog />} />
+          <Route exact path="/edit/:id" element={<EditPost />} />
         </Routes>
-      </div>
-    </Box>
+      </SnackbarProvider>
+    </div>
   );
 }
 
-export default App
+export default App;
