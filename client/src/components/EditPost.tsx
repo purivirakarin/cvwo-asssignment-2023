@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useForm } from "react-hook-form";
 import { useParams, useNavigate } from "react-router-dom";
-import { useSnackbar } from "react-simple-snackbar";
 const EditPost = () => {
   const [singlePost, setSinglePost] = useState();
   const [loading, setLoading] = useState(false);
@@ -30,11 +29,10 @@ const EditPost = () => {
       fontSize: "16px",
     },
   };
-  const [openSnackbar] = useSnackbar(options);
   const singleBlog = () => {
     axios
       .get(
-        `${process.env.REACT_APP_BACKEND_URL}/api/get-blog/${id}`,
+        `${import.meta.env.VITE_APP_BACKEND_URL}/api/get-blog/${id}`,
         //{},
         {
           withCredentials: true,
@@ -75,7 +73,7 @@ const EditPost = () => {
     };
     axios
       .put(
-        `${process.env.REACT_APP_BACKEND_URL}/api/update-blog/${id}`,
+        `${import.meta.env.VITE_APP_BACKEND_URL}/api/update-blog/${id}`,
         { ...body },
         {
           withCredentials: true,
@@ -83,12 +81,10 @@ const EditPost = () => {
       )
       .then(function (response) {
         //console.log(response?.data);
-        openSnackbar("Post Updated Successfully");
         setLoading(false);
         navigate("/personal");
       })
       .catch(function (error) {
-        openSnackbar("Oops!, Post is not updated");
         setLoading(false);
 
         // handle error

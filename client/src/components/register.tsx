@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import axios from "axios";
-import { useSnackbar } from "react-simple-snackbar";
 import { Link, useNavigate } from "react-router-dom";
 
 const Register = () => {
@@ -29,20 +28,18 @@ const Register = () => {
       fontSize: "16px",
     },
   };
-  const [openSnackbar] = useSnackbar(options);
-  const onSubmit = (data) => {
+  const onSubmit = (data: any) => {
     setLoading(true);
     const body = {
       ...data,
       //phone: parseInt(data.phone),
     };
     axios
-      .post(`${process.env.REACT_APP_BACKEND_URL}/api/register`, { ...body })
+      .post(`${import.meta.env.VITE_APP_BACKEND_URL}/api/register`, { ...body })
       .then(function (response) {
         // handle success
         setLoading(false);
         setMessage(response?.data?.message);
-        openSnackbar(response?.data?.message);
         localStorage.setItem("user", JSON.stringify(response?.data?.user));
         //console.log(response?.data?.user);
         navigate("/login");
@@ -51,7 +48,6 @@ const Register = () => {
         // handle error
         setLoading(false);
         setMessage(error?.response?.data?.message);
-        openSnackbar(error?.response?.data?.message);
         //console.log(error?.response?.data?.message);
       })
       .then(function () {
@@ -78,8 +74,8 @@ const Register = () => {
           <div className="pl-8">
             <form onSubmit={handleSubmit(onSubmit)}>
               <div className="text-sm">First Name</div>
-              <div class="relative text-gray-600 focus-within:text-gray-400">
-                <span class="absolute inset-y-0 left-0 flex items-center pl-2">
+              <div className="relative text-gray-600 focus-within:text-gray-400">
+                <span className="absolute inset-y-0 left-0 flex items-center pl-2">
                   <svg
                     fill="none"
                     stroke="currentColor"
@@ -94,8 +90,7 @@ const Register = () => {
                 </span>
                 <input
                   type="text"
-                  name="first_name"
-                  class="py-2 border-b-2 text-sm rounded-md pl-10 focus:outline-none w-10/12 focus:bg-white focus:text-gray-900"
+                  className="py-2 border-b-2 text-sm rounded-md pl-10 focus:outline-none w-10/12 focus:bg-white focus:text-gray-900"
                   placeholder="Enter your first name"
                   autoComplete="on"
                   {...register("first_name", {
@@ -114,11 +109,11 @@ const Register = () => {
                 </div>
               </div>
               <div className="pt-6 text-sm">Last Name:</div>
-              <div class="relative text-gray-600 focus-within:text-gray-400">
-                <span class="absolute inset-y-0 left-0 flex items-center pl-2">
+              <div className="relative text-gray-600 focus-within:text-gray-400">
+                <span className="absolute inset-y-0 left-0 flex items-center pl-2">
                   <button
                     type="submit"
-                    class="p-1 focus:outline-none focus:shadow-outline"
+                    className="p-1 focus:outline-none focus:shadow-outline"
                   >
                     <svg
                       fill="none"
@@ -135,7 +130,6 @@ const Register = () => {
                 </span>
                 <input
                   type="text"
-                  name="last_name"
                   className="py-2 border-b-2 text-sm rounded-md pl-10 focus:outline-none w-10/12 focus:bg-white focus:text-gray-900"
                   placeholder="Enter your last name"
                   autoComplete="on"
@@ -176,7 +170,6 @@ const Register = () => {
                 </span>
                 <input
                   type="email"
-                  name="email"
                   className="py-2 border-b-2 text-sm rounded-md pl-10 focus:outline-none w-10/12 focus:bg-white focus:text-gray-900"
                   placeholder="Enter your Email Address"
                   autoComplete="on"
@@ -209,7 +202,7 @@ const Register = () => {
                       stroke-linejoin="round"
                       stroke-width="2"
                       viewBox="0 0 24 24"
-                      class="w-4 h-4"
+                      className="w-4 h-4"
                     >
                       <path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
                     </svg>
@@ -217,7 +210,6 @@ const Register = () => {
                 </span>
                 <input
                   type="password"
-                  name="password"
                   className="py-2 border-b-2 text-sm rounded-md pl-10 focus:outline-none w-10/12 focus:bg-white focus:text-gray-900"
                   placeholder="Enter your password"
                   autoComplete="on"
@@ -259,7 +251,6 @@ const Register = () => {
                 </span>
                 <input
                   type="number"
-                  name="phone"
                   className="py-2 border-b-2 text-sm rounded-md pl-10 focus:outline-none w-10/12 focus:bg-white focus:text-gray-900"
                   placeholder="Enter your phone number"
                   autoComplete="on"
@@ -292,12 +283,12 @@ const Register = () => {
                 </div>
               </div>
             </form>
-            {/* <div class="flex justify-center items-center">
+            {/* <div className="flex justify-center items-center">
               <div
-                class="spinner-border animate-spin inline-block w-8 h-8 border-4 rounded-full"
+                className="spinner-border animate-spin inline-block w-8 h-8 border-4 rounded-full"
                 role="status"
               >
-                <span class="visually-hidden">Loading...</span>
+                <span className="visually-hidden">Loading...</span>
               </div>
             </div> */}
           </div>

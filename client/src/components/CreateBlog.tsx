@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { useSnackbar } from "react-simple-snackbar";
 import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 
@@ -41,21 +40,20 @@ const CreateBlog = () => {
       fontSize: "16px",
     },
   };
-  const [openSnackbar] = useSnackbar(options);
   const onSubmit = (data) => {
     setLoading(true);
 
     const body = {
       ...data,
-      image: imageData,
-      userid: userData.id,
+      // image: imageData,
+      userid: userData.id.toString(),
 
       //phone: parseInt(data.phone),
     };
     axios
       .post(
-        `${process.env.REACT_APP_BACKEND_URL}/api/post`,
-        { ...body },
+        `${import.meta.env.VITE_APP_BACKEND_URL}/api/post`,
+        body,
         {
           withCredentials: true,
         }
@@ -102,14 +100,13 @@ const CreateBlog = () => {
       headers: { "content-type": "multipart/form-data" },
       withCredentials: true,
     };
-    let url = `${process.env.REACT_APP_BACKEND_URL}/api/upload-image`;
+    let url = `${import.meta.env.VITE_APP_BACKEND_URL}/api/upload-image`;
 
     axios
       .post(url, formData, config)
       .then((response) => {
         setLoadingData(false);
         setImageData(response?.data?.url);
-        openSnackbar("Image uploaded successfully");
       })
       .catch((error) => {
         setLoadingData(false);
@@ -155,7 +152,7 @@ const CreateBlog = () => {
               )}
             </div>
           </div>
-          <div className="flex flex-wrap -mx-3 items-center lg:items-start mb-6">
+          {/* <div className="flex flex-wrap -mx-3 items-center lg:items-start mb-6">
             <div className="w-full px-3">
               <label title="click to select a picture">
                 <input
@@ -191,13 +188,13 @@ const CreateBlog = () => {
                   )}
                 </div>
               </label>
-              {/* <input
+              <input
                 className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                 id="grid-email"
                 type="file"
                 name="image"
                 onChange={handleImage}
-              /> */}
+              />
             </div>
             <div className="flex items-center justify-cente px-5">
               <button
@@ -209,7 +206,7 @@ const CreateBlog = () => {
                 {loading ? "Loading..." : " upload image"}
               </button>
             </div>
-          </div>
+          </div> */}
 
           <div className="flex flex-wrap -mx-3 mb-6">
             <div className="w-full px-3">

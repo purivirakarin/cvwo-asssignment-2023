@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { useSnackbar } from "react-simple-snackbar";
 import { useNavigate } from "react-router-dom";
 const PersonalBlog = () => {
   const [blogData, setBlogData] = useState();
@@ -23,18 +22,17 @@ const PersonalBlog = () => {
       fontSize: "16px",
     },
   };
-  const [openSnackbar] = useSnackbar(options);
   const uniqueBlog = () => {
     setLoading(true);
     axios
       .get(
-        `${process.env.REACT_APP_BACKEND_URL}/api/unique-blog`,
+        `${import.meta.env.VITE_APP_BACKEND_URL}/api/uniquepost`,
 
         {
           withCredentials: true,
-          headers: {
-            Authorization: "TOKEN",
-          },
+          // headers: {
+          //   Authorization: "TOKEN",
+          // },
         }
       )
       .then(function (response) {
@@ -66,7 +64,7 @@ const PersonalBlog = () => {
     setDeleteLoading(true);
     axios
       .delete(
-        `${process.env.REACT_APP_BACKEND_URL}/api/delete-blog/${blog.id}`,
+        `${import.meta.env.VITE_APP_BACKEND_URL}/api/delete-blog/${blog.id}`,
 
         {
           withCredentials: true,
@@ -76,7 +74,6 @@ const PersonalBlog = () => {
         //setLoading(false);
         //setBlogData(response?.data?.data);
         setDeleteLoading(false);
-        openSnackbar(response?.data?.message);
 
         uniqueBlog();
 
@@ -86,7 +83,6 @@ const PersonalBlog = () => {
         // handle error
         setDeleteLoading(false);
         //   setMessage(error?.response?.data?.message);
-        openSnackbar(error?.response?.data?.message);
         //console.log(error?.response?.data?.message);
       })
       .then(function () {
@@ -106,8 +102,8 @@ const PersonalBlog = () => {
           <h1>LOADING.....</h1>
         </div>
       )}
-      <div class="container my-12 mx-auto px-4 md:px-12">
-        <div class="flex flex-wrap -mx-1 lg:-mx-4">
+      <div className="container my-12 mx-auto px-4 md:px-12">
+        <div className="flex flex-wrap -mx-1 lg:-mx-4">
           {blogData?.map((blog) => (
             <div className="my-1 px-1 w-full md:w-1/2 lg:my-4 lg:px-4 lg:w-1/3">
               <article className="overflow-hidden rounded-lg shadow-lg">

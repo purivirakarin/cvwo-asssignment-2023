@@ -5,10 +5,14 @@ const Navbar = () => {
   const [loading, setLoading] = useState(false);
   const [userData, setUserData] = useState();
   const navigate = useNavigate();
+  const logIn = () => {
+    navigate("/login")
+  }
   const logOut = () => {
+    console.log(import.meta.env.VITE_APP_BACKEND_URL)
     axios
       .post(
-        `${process.env.REACT_APP_BACKEND_URL}/api/logout`,
+        `${import.meta.env.VITE_APP_BACKEND_URL}/api/logout`,
         {},
         {
           withCredentials: true,
@@ -102,10 +106,10 @@ const Navbar = () => {
             My Post
           </a>
           <div
-            onClick={logOut}
+            onClick={userData? logOut : logIn}
             className="block mt-4 text-base lg:inline-block lg:mt-0 text-teal-200 hover:text-white cursor-pointer"
           >
-            {userData ? " Log Out" : "Login"}
+            {userData ? "Log Out" : "Login"}
           </div>
         </div>
       </div>

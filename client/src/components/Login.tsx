@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import axios from "axios";
-import { useSnackbar } from "react-simple-snackbar";
 import { Link, useNavigate } from "react-router-dom";
 
 const Login = () => {
@@ -29,7 +28,6 @@ const Login = () => {
       fontSize: "16px",
     },
   };
-  const [openSnackbar, closeSnackbar] = useSnackbar(options);
   const onSubmit = (data) => {
     setLoading(true);
     const body = {
@@ -38,7 +36,7 @@ const Login = () => {
     };
     axios
       .post(
-        `${process.env.REACT_APP_BACKEND_URL}/api/login`,
+        `${import.meta.env.VITE_APP_BACKEND_URL}/api/login`,
         { ...body },
         {
           withCredentials: true,
@@ -48,7 +46,6 @@ const Login = () => {
         // handle success
         setLoading(false);
         setMessage(response?.data?.message);
-        openSnackbar(response?.data?.message);
         localStorage.setItem("user", JSON.stringify(response?.data?.user));
         navigate("/");
         //console.log(response?.data?.message);
@@ -57,7 +54,6 @@ const Login = () => {
         // handle error
         setLoading(false);
         setMessage(error?.response?.data?.message);
-        openSnackbar(error?.response?.data?.message);
         //console.log(error?.response?.data?.message);
       })
       .then(function () {
@@ -138,7 +134,7 @@ const Login = () => {
                       stroke-linejoin="round"
                       stroke-width="2"
                       viewBox="0 0 24 24"
-                      class="w-4 h-4"
+                      className="w-4 h-4"
                     >
                       <path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
                     </svg>
@@ -183,12 +179,12 @@ const Login = () => {
                 </div>
               </div>
             </form>
-            {/* <div class="flex justify-center items-center">
+            {/* <div className="flex justify-center items-center">
               <div
-                class="spinner-border animate-spin inline-block w-8 h-8 border-4 rounded-full"
+                className="spinner-border animate-spin inline-block w-8 h-8 border-4 rounded-full"
                 role="status"
               >
-                <span class="visually-hidden">Loading...</span>
+                <span className="visually-hidden">Loading...</span>
               </div>
             </div> */}
           </div>

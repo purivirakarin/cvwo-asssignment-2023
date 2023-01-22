@@ -16,7 +16,7 @@ const BlogDetail = () => {
   const singleBlog = () => {
     axios
       .get(
-        `${process.env.REACT_APP_BACKEND_URL}/api/get-blog/${id}`,
+        `${import.meta.env.VITE_APP_BACKEND_URL}/api/allpost/${id}`,
         //{},
         {
           withCredentials: true,
@@ -60,7 +60,7 @@ const BlogDetail = () => {
       <div className="max-w-3xl mx-auto">
         <div className="mt-3 bg-white rounded-b lg:rounded-b-none lg:rounded-r flex flex-col justify-between leading-normal">
           <div className="">
-            <p className="text-base leading-8 my-5">{singlePost?.desc}</p>
+            <p className="text-base leading-8 my-5">{singlePost?.Desc}</p>
           </div>
         </div>
       </div>
