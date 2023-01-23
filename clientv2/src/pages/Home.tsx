@@ -67,7 +67,7 @@ export default function Home() {
                         {post.Title}
                       </p>
                       <p className="mt-3 text-base text-gray-500">
-                        {post.Desc}
+                        {post.Desc.substring(0, 200)}
                       </p>
                     </a>
                   </div>

@@ -19,6 +19,7 @@ func main() {
 		log.Fatal("Error loading .env files")
 	}
 	port := os.Getenv("PORT")
+
 	app := fiber.New()
 	app.Use(cors.New(cors.Config{
 		AllowOrigins: os.Getenv("FRONTEND"),
@@ -29,5 +30,12 @@ func main() {
 	routes.Setup(app)
 	app.Listen(":"+port)
 
-	
+	// db, err = sql.Open("mysql", os.Getenv("DSN"))
+	// if err != nil {
+	// 	log.Fatal("failed to open db connection", err)
+
+	// }
+	// app := fiber.New()
+	// routes := gin.Default
+	// routes.Setup(app)
 }

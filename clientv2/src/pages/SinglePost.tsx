@@ -67,9 +67,13 @@ export default function SinglePost() {
                         {post.Tag}
                       </h2>
                       <p className="font-normal text-gray-500">
-                        {convertDateTime(post.Date)}
+                        Posted by{' '}
+                        <span className="text-gray-900">
+                          {post.user.Username}
+                        </span>{' '}
+                        on {convertDateTime(post.Date)}
                       </p>
-                      <p className="mt-2 text-3xl font-bold leading-8 tracking-tight text-gray-900 sm:text-4xl">
+                      <p className="mt-2 py-2 text-3xl font-bold leading-8 tracking-tight text-gray-900 sm:text-4xl">
                         {post.Title}
                       </p>
                     </div>
@@ -91,12 +95,14 @@ export default function SinglePost() {
                     </div>
                   </div>
                 </div>{' '}
-                <div className="py-10 md:mx-6">
-                  <CommentBox
-                    forumId={Number(id || '0')}
-                    refetch={() => setShouldFetch(true)}
-                  />
-                </div>
+                {user && (
+                  <div className="py-10 md:mx-6">
+                    <CommentBox
+                      forumId={Number(id || '0')}
+                      refetch={() => setShouldFetch(true)}
+                    />
+                  </div>
+                )}
                 <div className="md:mx-6">
                   <div className="space-y-4">
                     {comments.reverse().map((comment: Comment) => (

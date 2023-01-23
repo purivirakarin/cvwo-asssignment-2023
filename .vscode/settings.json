@@ -25,6 +25,19 @@
       "database": "mydb_2",
       "username": "root",
       "password": "Home2002"
+    },
+    {
+      "mysqlOptions": {
+        "authProtocol": "default"
+      },
+      "previewLimit": 50,
+      "server": "ap-southeast.connect.psdb.cloud",
+      "port": 3306,
+      "driver": "MySQL",
+      "username": "2957srzyjc9c2q4estpb",
+      "password": "pscale_pw_h5pFfh0UxnVzGnwwKGg03GQEWb7zmOcPA3f4J4XzAoG",
+      "database": "mydb",
+      "name": "aa"
     }
   ]
 }

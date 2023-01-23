@@ -67,7 +67,7 @@ export default function UniquePost() {
                     <p className="text-xl font-semibold text-gray-900">
                       {post.Title}
                     </p>
-                    <p className="mt-3 text-base text-gray-500">{post.Desc}</p>
+                    <p className="mt-3 text-base text-gray-500">{post.Desc.substring(0, 200)}</p>
                   </a>
                   <div className="mt-6 flex items-center">
                     <div className="flex-shrink-0">
