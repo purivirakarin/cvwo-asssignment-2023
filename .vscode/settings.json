@@ -1,17 +1,30 @@
 {
-    "sqltools.connections": [
-        {
-            "mysqlOptions": {
-                "authProtocol": "default"
-            },
-            "previewLimit": 50,
-            "server": "localhost",
-            "port": 3306,
-            "driver": "MySQL",
-            "name": "mydb_test",
-            "database": "mydb",
-            "username": "root",
-            "password": "Home2002"
-        }
-    ]
+  "sqltools.connections": [
+    {
+      "mysqlOptions": {
+        "authProtocol": "default"
+      },
+      "previewLimit": 50,
+      "server": "localhost",
+      "port": 3306,
+      "driver": "MySQL",
+      "name": "mydb_test",
+      "database": "mydb",
+      "username": "root",
+      "password": "Home2002"
+    },
+    {
+      "mysqlOptions": {
+        "authProtocol": "default"
+      },
+      "previewLimit": 50,
+      "server": "localhost",
+      "port": 3306,
+      "driver": "MySQL",
+      "name": "mydb2_test",
+      "database": "mydb_2",
+      "username": "root",
+      "password": "Home2002"
+    }
+  ]
 }

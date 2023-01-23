@@ -18,7 +18,9 @@ func Connect() {
 		log.Fatal("Error load .env file")
 	}
 	dsn := os.Getenv("DSN")
-	database, err := gorm.Open(mysql.Open(dsn), &gorm.Config{})
+	database, err := gorm.Open(mysql.Open(dsn), &gorm.Config{
+		DisableForeignKeyConstraintWhenMigrating: true,
+	})
 	if err != nil {
 		panic("Could not connect to the database")
 	} else {

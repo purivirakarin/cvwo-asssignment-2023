@@ -4,18 +4,28 @@ import useUser from '../hooks/useUser'
 import { useNavigate } from 'react-router-dom'
 
 const MENU = [
-  { name: 'My post', url: '/mypost' },
-  { name: 'Create new post', url: '/create' },
+  { name: 'My post', url: '/uniquepost' },
+  { name: 'Create new post', url: '/createpost' },
 ]
 
 export default function Navbar() {
   const navigate = useNavigate()
 
-  const user = useUser()
+  const { user, refetch } = useUser()
 
-  const logOut = () => {
-    localStorage.removeItem('user')
-    navigate('/')
+  const logOut = async () => {
+    const response = await fetch(
+      `${process.env.REACT_APP_BACKEND_URL}/api/logout`,
+      {
+        method: 'POST',
+        credentials: 'include',
+      }
+    )
+
+    if (response.status == 200) {
+      refetch()
+      navigate('/')
+    }
   }
 
   return (
@@ -41,28 +51,35 @@ export default function Navbar() {
                     CVForum
                   </a>
                 </div>
-                <div className="hidden sm:ml-6 sm:flex sm:space-x-8">
-                  {MENU.map(({ name, url }) => (
-                    <a
-                      key={name}
-                      href={url}
-                      className="inline-flex items-center border-b-2 border-transparent px-1 pt-1 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700"
-                    >
-                      {name}
-                    </a>
-                  ))}
-                </div>
+                {user && (
+                  <div className="hidden sm:ml-6 sm:flex sm:space-x-8">
+                    {MENU.map(({ name, url }) => (
+                      <a
+                        key={name}
+                        href={url}
+                        className="inline-flex items-center border-b-2 border-transparent px-1 pt-1 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700"
+                      >
+                        {name}
+                      </a>
+                    ))}
+                  </div>
+                )}
               </div>
               <div className="absolute inset-y-0 right-0 hidden items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:flex sm:pr-0">
                 {user ? (
-                  <a
-                    href="#"
-                    type="button"
-                    className="inline-flex items-center rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
-                    onClick={logOut}
-                  >
-                    Log Out
-                  </a>
+                  <div className="flex items-center space-x-3">
+                    <p className="text-lg font-semibold text-indigo-700">
+                      {user.Username}
+                    </p>
+                    <a
+                      href="#"
+                      type="button"
+                      className="inline-flex items-center rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                      onClick={logOut}
+                    >
+                      Log Out
+                    </a>
+                  </div>
                 ) : (
                   <a
                     href="/login"
@@ -77,28 +94,35 @@ export default function Navbar() {
           </div>
 
           <Disclosure.Panel className="sm:hidden">
-            <div className="space-y-1 pt-2 pb-4">
-              {MENU.map(({ name, url }) => (
-                <Disclosure.Button
-                  key={name}
-                  as="a"
-                  href={url}
-                  className="block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-gray-500 hover:border-gray-300 hover:bg-gray-50 hover:text-gray-700"
-                >
-                  {name}
-                </Disclosure.Button>
-              ))}
-            </div>
-            <div className="border-t border-gray-200 pt-2 pb-4">
+            {user && (
+              <div className="space-y-1 py-2 pb-4">
+                {MENU.map(({ name, url }) => (
+                  <Disclosure.Button
+                    key={name}
+                    as="a"
+                    href={url}
+                    className="block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-gray-500 hover:border-gray-300 hover:bg-gray-50 hover:text-gray-700"
+                  >
+                    {name}
+                  </Disclosure.Button>
+                ))}
+              </div>
+            )}
+            <div className="border-t border-gray-200 pb-4">
               {user ? (
-                <Disclosure.Button
-                  as="a"
-                  href="#"
-                  className="block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-gray-500 hover:border-gray-300 hover:bg-gray-50 hover:text-gray-700"
-                  onClick={logOut}
-                >
-                  Log Out
-                </Disclosure.Button>
+                <div className="space-y-3">
+                  <p className="py-2 px-4 text-lg font-medium text-indigo-700">
+                    {user.Username}
+                  </p>
+                  <Disclosure.Button
+                    as="a"
+                    href="#"
+                    className="block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-gray-500 hover:border-gray-300 hover:bg-gray-50 hover:text-gray-700"
+                    onClick={logOut}
+                  >
+                    Log Out
+                  </Disclosure.Button>
+                </div>
               ) : (
                 <Disclosure.Button
                   as="a"

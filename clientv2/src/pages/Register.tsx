@@ -3,20 +3,20 @@ import PageLayout from '../components/PageLayout'
 import { useNavigate } from 'react-router-dom'
 import useUser from '../hooks/useUser'
 
-export default function LogIn() {
+export default function Register() {
   const navigate = useNavigate()
 
-  const { user, refetch } = useUser()
+  const { user } = useUser()
 
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
   const [errorMsg, setErrorMsg] = useState('')
 
-  const logIn = async (e: React.FormEvent) => {
+  const register = async (e: React.FormEvent) => {
     e.preventDefault()
 
     const response = await fetch(
-      `${process.env.REACT_APP_BACKEND_URL}/api/login`,
+      `${process.env.REACT_APP_BACKEND_URL}/api/register`,
       {
         method: 'POST',
         headers: {
@@ -34,8 +34,7 @@ export default function LogIn() {
       const { message } = await response.json()
       setErrorMsg(message)
     } else {
-      refetch()
-      navigate('/', { replace: true })
+      navigate('/login')
     }
   }
 
@@ -49,12 +48,12 @@ export default function LogIn() {
     <PageLayout>
       <div className="max-w-7xl px-2 sm:mx-auto sm:w-full sm:px-6 lg:px-8">
         <div className="py-24">
-          <div className="border border-gray-200 bg-white shadow sm:mx-auto sm:w-full sm:max-w-md sm:overflow-hidden sm:rounded-lg">
+          <div className="mx-auto border border-gray-200 bg-white shadow sm:w-full sm:max-w-md sm:overflow-hidden sm:rounded-lg">
             <div className="px-6 py-8 sm:px-10">
-              <div className="text-base font-bold text-gray-900">Log In</div>
+              <div className="text-base font-bold text-gray-900">Register</div>
 
               <div className="mt-6">
-                <form className="space-y-6" onSubmit={logIn}>
+                <form className="space-y-6" onSubmit={register}>
                   <div>
                     <label htmlFor="username" className="sr-only">
                       Username
@@ -102,7 +101,7 @@ export default function LogIn() {
                       type="submit"
                       className="flex w-full justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
                     >
-                      Log In
+                      Register
                     </button>
                   </div>
                 </form>
@@ -110,9 +109,9 @@ export default function LogIn() {
             </div>
             <div className="border-t-2 border-gray-200 bg-gray-50 px-6 py-6 sm:px-10">
               <p className="text-xs leading-5 text-gray-500">
-                Don't have an account? Register{' '}
+                Already have an account? Log in{' '}
                 <a
-                  href="/register"
+                  href="/login"
                   className="font-medium text-gray-900 hover:underline"
                 >
                   here

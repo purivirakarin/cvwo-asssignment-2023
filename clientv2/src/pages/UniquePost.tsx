@@ -5,13 +5,13 @@ import classNames from '../utils/classNames'
 import TagChoice from '../components/TagChoice'
 import convertDateTime from '../utils/convertDateTime'
 
-export default function Home() {
+export default function UniquePost() {
   const [tag, setTag] = useState('All')
   const [posts, setPosts] = useState<Post[]>([])
 
   const fetchPosts = async () => {
     const response = await fetch(
-      `${process.env.REACT_APP_BACKEND_URL}/api/allpost${
+      `${process.env.REACT_APP_BACKEND_URL}/api/uniquepost${
         tag !== 'All' ? `?tag=${tag}` : ''
       }`,
       {
@@ -23,7 +23,7 @@ export default function Home() {
       setPosts([])
     } else {
       const posts = await response.json()
-      setPosts(posts || [])
+      setPosts(posts)
     }
   }
 
@@ -38,7 +38,7 @@ export default function Home() {
           <div className="relative mx-auto w-full divide-y-2 divide-gray-200 lg:max-w-7xl">
             <div className="block items-center justify-between sm:flex">
               <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-                All posts in CVForum
+                My posts
               </h2>
               <div className="mt-4">
                 <TagChoice query={tag} setQuery={setTag} />
@@ -49,7 +49,7 @@ export default function Home() {
               {posts.map((post) => (
                 <div
                   key={post.id}
-                  className="flex flex-col justify-between rounded-lg border border-gray-200 p-4 lg:p-6"
+                  className="rounded-lg border border-gray-200 p-4 lg:p-6"
                 >
                   <div>
                     <a href={`/singlepost/${post.id}`} className="inline-block">
@@ -62,16 +62,13 @@ export default function Home() {
                         {post.Tag}
                       </span>
                     </a>
-                    <a href={`/singlepost/${post.id}`} className="mt-4 block">
-                      <p className="text-xl font-semibold text-gray-900">
-                        {post.Title}
-                      </p>
-                      <p className="mt-3 text-base text-gray-500">
-                        {post.Desc}
-                      </p>
-                    </a>
                   </div>
-
+                  <a href={`/singlepost/${post.id}`} className="mt-4 block">
+                    <p className="text-xl font-semibold text-gray-900">
+                      {post.Title}
+                    </p>
+                    <p className="mt-3 text-base text-gray-500">{post.Desc}</p>
+                  </a>
                   <div className="mt-6 flex items-center">
                     <div className="flex-shrink-0">
                       <span className="sr-only">{post.user.Username}</span>
