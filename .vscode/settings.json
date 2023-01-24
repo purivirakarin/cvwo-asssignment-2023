@@ -38,6 +38,19 @@
       "password": "pscale_pw_h5pFfh0UxnVzGnwwKGg03GQEWb7zmOcPA3f4J4XzAoG",
       "database": "mydb",
       "name": "aa"
+    },
+    {
+      "mysqlOptions": {
+        "authProtocol": "default"
+      },
+      "previewLimit": 50,
+      "server": "localhost",
+      "port": 3309,
+      "driver": "MySQL",
+      "username": "root",
+      "database": "mydb",
+      "name": "Planet Scale",
+      "password": ""
     }
   ]
 }

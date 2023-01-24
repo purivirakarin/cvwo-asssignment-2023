@@ -77,7 +77,7 @@ export default function SinglePost() {
                         {post.Title}
                       </p>
                     </div>
-                    {id === user?.id.toString() && (
+                    {post?.user.id.toString() === user?.id.toString() && (
                       <a
                         type="button"
                         href={`/editpost/${post.id}`}
