@@ -5,6 +5,8 @@ import (
 	"github.com/purivirakarin/cvwo-assignment-2023/server/util"
 )
 
+// If the authenticated cookie is not present, return a JSON message.
+// If the cookie is present, continue to the next handler
 func IsAuthenticate(c *fiber.Ctx) error {
 	cookie := c.Cookies("jwt")
 	if _, err := util.Parsejwt(cookie); err != nil {

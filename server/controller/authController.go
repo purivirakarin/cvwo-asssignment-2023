@@ -3,7 +3,6 @@ package controller
 import (
 	"fmt"
 	"log"
-	"regexp"
 	"strconv"
 	"time"
 
@@ -14,11 +13,8 @@ import (
 	"github.com/purivirakarin/cvwo-assignment-2023/server/util"
 )
 
-func validateEmail(email string) bool {
-	Re := regexp.MustCompile(`[a-z0-9._%+\-]+@[a-z0-9._%+\-]+\.[a-z0-9._%+\-]`)
-	return Re.MatchString(email)
-}
-
+// It takes the request body, checks if the password is greater than 6 characters, checks if the
+// username already exists in the database, creates a new user, and returns a JSON response
 func Register(c *fiber.Ctx) error {
 	var data map[string]interface{}
 	var userData models.User
@@ -41,7 +37,7 @@ func Register(c *fiber.Ctx) error {
 		})
 	}
 	user := models.User{
-		Username:  data["username"].(string),
+		Username: data["username"].(string),
 	}
 	user.SetPassword(data["password"].(string))
 	err := database.DB.Create(&user)
@@ -56,6 +52,8 @@ func Register(c *fiber.Ctx) error {
 
 }
 
+// It takes in a username and password, checks if the username exists in the database, if it does, it
+// checks if the password is correct, if it is, it generates a JWT token and sets it as a cookie
 func Login(c *fiber.Ctx) error {
 	var data map[string]string
 	if err := c.BodyParser(&data); err != nil {
@@ -93,6 +91,8 @@ func Login(c *fiber.Ctx) error {
 	})
 }
 
+// It gets the JWT from the cookie, parses it, gets the user from the database, and returns the user
+// if there is no identification, return message unauthorized.
 func User(c *fiber.Ctx) error {
 	cookie := c.Cookies("jwt")
 
@@ -114,10 +114,10 @@ func User(c *fiber.Ctx) error {
 }
 
 func Logout(c *fiber.Ctx) error {
-	cookie := fiber.Cookie {
-		Name: "jwt",
-		Value: "",
-		Expires: time.Now().Add(-time.Hour),
+	cookie := fiber.Cookie{
+		Name:     "jwt",
+		Value:    "",
+		Expires:  time.Now().Add(-time.Hour),
 		HTTPOnly: true,
 	}
 

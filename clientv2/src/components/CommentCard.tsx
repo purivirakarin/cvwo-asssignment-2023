@@ -15,6 +15,10 @@ export default function CommentCard({ comment, refetch }: IProps) {
   const [comment_n, setComment_n] = useState(comment.Desc)
   const [errorMsg, setErrorMsg] = useState('')
 
+/**
+ * We're using the fetch API to send a PUT request to the backend, which will update the comment in the
+ * database
+ */
   const postComment = async () => {
     const response = await fetch(
       `${process.env.REACT_APP_BACKEND_URL}/api/updatecomment/${comment.id}`,
@@ -33,6 +37,9 @@ export default function CommentCard({ comment, refetch }: IProps) {
     refetch()
   }
 
+/**
+ * It makes a request to the backend to delete the comment, and then it refetches the comments
+ */
   const deleteComment = async () => {
     const response = await fetch(
       `${process.env.REACT_APP_BACKEND_URL}/api/deletecomment/${comment.id}`,

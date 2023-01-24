@@ -7,6 +7,9 @@ import CreatePost from './pages/CreatePost'
 import SinglePost from './pages/SinglePost'
 import EditPost from './pages/EditPost'
 
+/**
+ * The App function returns a Routes component that contains a Route component for each page in the app
+ */
 export default function App() {
   return (
     <>

@@ -6,6 +6,7 @@ import (
 	"github.com/purivirakarin/cvwo-assignment-2023/server/middleware"
 )
 
+// It sets up the routes for the application
 func Setup(app *fiber.App) {
 	app.Post("/api/register", controller.Register)
 	app.Post("/api/login", controller.Login)

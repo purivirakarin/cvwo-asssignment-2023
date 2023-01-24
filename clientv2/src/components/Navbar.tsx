@@ -13,6 +13,10 @@ export default function Navbar() {
 
   const { user, refetch } = useUser()
 
+  /**
+   * It sends a POST request (Log Out request) to the backend, and if the response is successful, it refreshes the page
+   * and navigates to the homepage
+   */
   const logOut = async () => {
     const response = await fetch(
       `${process.env.REACT_APP_BACKEND_URL}/api/logout`,

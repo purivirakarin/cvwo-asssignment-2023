@@ -12,6 +12,12 @@ export default function Register() {
   const [password, setPassword] = useState('')
   const [errorMsg, setErrorMsg] = useState('')
 
+/**
+ * Register is an async function that takes an event as an argument, prevents the default action, makes
+ * a fetch request to the backend, and if the response is 400 or 404, sets the error message to the
+ * message returned from the backend, otherwise navigates to the login page
+ * @param e - React.FormEvent - this is the event that is triggered when the form is submitted.
+ */
   const register = async (e: React.FormEvent) => {
     e.preventDefault()
 

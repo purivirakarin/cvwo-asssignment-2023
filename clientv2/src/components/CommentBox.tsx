@@ -8,6 +8,11 @@ interface IProps {
 export default function CommentBox({ forumId, refetch }: IProps) {
   const [comment, setComment] = useState('')
 
+  /**
+   * It takes the form event, prevents the default action, then sends a POST request to the backend
+   * with the comment and forumId (to post a comment)
+   * @param e - React.FormEvent - this is the event that is triggered when the form is submitted.
+   */
   const createComment = async (e: React.FormEvent) => {
     e.preventDefault()
 

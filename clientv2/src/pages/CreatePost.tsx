@@ -10,6 +10,11 @@ export default function CreatePost() {
   const [description, setDescription] = useState('')
   const [category, setCategory] = useState(TAGS[0])
 
+/**
+ * PostBlog is a function that takes in an event, prevents the default action, and then makes a fetch
+ * request to the backend to post a blog
+ * @param e - React.FormEvent - this is the event that is triggered when the form is submitted.
+ */
   const postBlog = async (e: React.FormEvent) => {
     e.preventDefault()
 

@@ -11,6 +11,8 @@ import (
 	"github.com/purivirakarin/cvwo-assignment-2023/server/routes"
 )
 
+// It connects to the database, loads the .env file, sets the port, sets up the app, 
+// and listens on the port.
 func main() {
 
 	database.Connect()
@@ -29,13 +31,4 @@ func main() {
 	}))
 	routes.Setup(app)
 	app.Listen(":"+port)
-
-	// db, err = sql.Open("mysql", os.Getenv("DSN"))
-	// if err != nil {
-	// 	log.Fatal("failed to open db connection", err)
-
-	// }
-	// app := fiber.New()
-	// routes := gin.Default
-	// routes.Setup(app)
 }

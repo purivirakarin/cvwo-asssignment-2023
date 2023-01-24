@@ -12,6 +12,9 @@ export default function EditPost() {
   const [description, setDescription] = useState('')
   const [category, setCategory] = useState(TAGS[0])
 
+  /**
+   * It fetches the post from the backend and sets the state of the post to the fetched post
+   */
   const fetchPost = async () => {
     const response = await fetch(
       `${process.env.REACT_APP_BACKEND_URL}/api/allpost/${id}`,
@@ -28,6 +31,10 @@ export default function EditPost() {
     }
   }
 
+/**
+ * It sends a DELETE request to the backend, which deletes the post from the database, and then
+ * redirects the user to the homepage
+ */
   const deletePost = async () => {
     const response = await fetch(
       `${process.env.REACT_APP_BACKEND_URL}/api/deletepost/${id}`,
@@ -43,6 +50,14 @@ export default function EditPost() {
     navigate('/uniquepost', { replace: true })
   }
 
+/**
+ * The function postBlog is an async function that takes in an event as a parameter. The function
+ * prevents the default action of the event, and then makes a fetch request to the backend. The fetch
+ * request is a PUT request that sends the title, description, and category of the blog post to the
+ * backend. If the response status is 400 or 404, the function sets the error message to the message
+ * returned from the backend. Otherwise, the function navigates to the uniquepost page
+ * @param e - React.FormEvent - this is the event that is triggered when the form is submitted.
+ */
   const postBlog = async (e: React.FormEvent) => {
     e.preventDefault()
 

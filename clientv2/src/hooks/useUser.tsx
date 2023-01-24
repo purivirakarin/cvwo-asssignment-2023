@@ -5,6 +5,9 @@ export default function useUser() {
   const [shouldFetch, setShouldFetch] = useState(true)
   const [state, setState] = useState<User | null | undefined>()
 
+  /**
+   * It fetches the user from the backend, and if the user is not logged in, it sets the state to null
+   */
   const fetchUser = async () => {
     const response = await fetch(
       `${process.env.REACT_APP_BACKEND_URL}/api/user`,

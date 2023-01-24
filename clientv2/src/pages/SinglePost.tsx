@@ -15,6 +15,10 @@ export default function SinglePost() {
   const [post, setPost] = useState<Post>()
   const [comments, setComments] = useState<Comment[]>([])
 
+/**
+ * We're using the fetch API to make a GET request to the backend, and then we're setting the state of
+ * the post to the response we get back
+ */
   const fetchPost = async () => {
     const response = await fetch(
       `${process.env.REACT_APP_BACKEND_URL}/api/allpost/${id}`,
@@ -29,6 +33,10 @@ export default function SinglePost() {
     }
   }
 
+/**
+ * FetchComments is an async function that fetches comments from the backend and sets the comments
+ * state to the fetched comments
+ */
   const fetchComments = async () => {
     const response = await fetch(
       `${process.env.REACT_APP_BACKEND_URL}/api/comment/${id}`,

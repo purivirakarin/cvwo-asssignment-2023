@@ -8,6 +8,7 @@ import (
 
 const SecretKey = "secret"
 
+// It creates a new JWT with the issuer as the claim and signs it with the secret key.
 func GenerateJwt(issuer string) (string, error) {
 	claims := jwt.NewWithClaims(jwt.SigningMethodHS256, jwt.StandardClaims{
 		Issuer: issuer,
@@ -16,6 +17,7 @@ func GenerateJwt(issuer string) (string, error) {
 	return claims.SignedString([]byte(SecretKey))
 } 
 
+// It parses the JWT token and returns the issuer.
 func Parsejwt(cookie string) (string, error) {
 	token, err := jwt.ParseWithClaims(cookie, &jwt.StandardClaims{}, func(t *jwt.Token)(interface{}, error){
 		return []byte(SecretKey), nil
