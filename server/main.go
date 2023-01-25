@@ -27,7 +27,7 @@ func main() {
 		AllowOrigins: os.Getenv("FRONTEND"),
 		AllowCredentials: true,
 		AllowMethods: "GET, POST, PATCH, PUT, DELETE, OPTIONS",
-		AllowHeaders: "Origin, Content-Type, X-Auth-Token",
+		AllowHeaders: "Origin, Content-Type, X-Auth-Token, withCredentials",
 	}))
 	routes.Setup(app)
 	app.Listen(":"+port)
