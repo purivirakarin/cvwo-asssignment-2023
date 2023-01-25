@@ -28,7 +28,6 @@ export default function LogIn() {
           'Content-Type': 'application/json',
           'withCredentials': 'true',
         },
-        credentials: 'include',
         body: JSON.stringify({
           username,
           password,
