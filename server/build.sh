@@ -1,6 +1,2 @@
-set -euxo pipefail
-
-mkdir -p "$(pwd)/functions"
-GOBIN=$(pwd)/functions go install ./...
-chmod +x "$(pwd)"/functions/*
-go env
+#!/usr/bin/env bash
+go build -o main.go controller/authController.go controller/commentController.go controller/postController.go database/connect.go middleware/middleware.go models/comment.go models/forum.go models/user.go routes/route.go util/helper.go
