@@ -1,4 +1,4 @@
-# CVWO 2023 Web Forum - [CVForum](https://cvwo-asssignment-2023-ikjxdl5tq-purivirakarin.vercel.app/)
+# CVWO 2023 Web Forum - [CVForum](https://cvwo-asssignment-2023-frontend.vercel.app/)
 
 | Name                 | Matriculation number |
 | -------------------- | -------------------- |
@@ -7,7 +7,7 @@
 ## Remarks
 
 Frontend (Vercel)
-[https://cvwo-asssignment-2023-ikjxdl5tq-purivirakarin.vercel.app/](https://cvwo-asssignment-2023-ikjxdl5tq-purivirakarin.vercel.app/)
+[https://cvwo-asssignment-2023-frontend.vercel.app/](https://cvwo-asssignment-2023-frontend.vercel.app/)
 
 Backend (Heroku)
 [https://cvwo-assignment-2023-backend.herokuapp.com](https://cvwo-assignment-2023-backend.herokuapp.com)
