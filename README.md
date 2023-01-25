@@ -10,6 +10,22 @@
 - [Go](https://www.golangprograms.com) + [GORM](https://gorm.io)
 - [MySQL](https://www.mysql.com) + [PlanetScale](https://planetscale.com)
 
+## Installation
+
+1. Clone the repository.
+
+`https://github.com/purivirakarin/cvwo-asssignment-2023.git`
+
+2. Install dependencies 
+
+`yarn install` frontend (clientv2) and `go get` backend (server).
+
+3. Set up MySQL database
+
+4. Modify the environment files
+`clientv2/.env` frontend
+`server/.env` backend
+
 ## Execution Plan
 
 #### Early December
