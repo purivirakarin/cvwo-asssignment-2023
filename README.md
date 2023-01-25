@@ -104,3 +104,8 @@ Go to the Homepage by clicking the "CVForum" button on the top-left corner. Then
 #### Filtering the posts by the current user
 
 Go to the My Post page by clicking the "My Post" button on the navigation bar. Then Click the dropdown list after "Category"; then select the desired category of posts to be shown in the feed.
+
+## Credit
+
+- All YouTuber and online materials that allow me to build up my skills, which include Akhil Sharma, freeCodeCamp.org, TomDoesTech, Tech with Tim, David Alsh, Web Dev Simplified, Ginux Tech, SHAGGYER, and many other
+- NUS CS and BZA friends who sit beside me help me answer my doubts, help me sometimes when I get lost, help me plan the project's structure, and most importantly, make me know the CVWO project.
