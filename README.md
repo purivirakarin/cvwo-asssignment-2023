@@ -24,6 +24,7 @@
 
 4. Modify the environment files
 `clientv2/.env` frontend `REACT_APP_BACKEND_URL=<YOUR BACKEND URL>`
+
 `server/.env` backend `FRONTEND=<YOUR FRONTEND URL>` and `DSN=<DATABASE PROPERTIES>` and `PORT=<YOUR DESIRED BACKEND PORT>`
 
 5. Start the development servers
