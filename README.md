@@ -12,7 +12,7 @@ Frontend (Vercel)
 Backend (Heroku)
 [https://cvwo-assignment-2023-backend.herokuapp.com](https://cvwo-assignment-2023-backend.herokuapp.com)
 
-The web does not owrk because heroku cannot save the cookie of the jwt user identification in the browser.
+The web frontend cannot connect with the backend because heroku cannot save the cookie of the jwt user identification in the browser.
 However, all API do work fine. :)
 
 ## Technology
