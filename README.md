@@ -23,8 +23,8 @@
 3. Set up MySQL database
 
 4. Modify the environment files
-`clientv2/.env` frontend
-`server/.env` backend
+`clientv2/.env` frontend `REACT_APP_BACKEND_URL=<YOUR BACKEND URL>`
+`server/.env` backend `FRONTEND=<YOUR FRONTEND URL>` and `DSN=<DATABASE PROPERTIES>` and `PORT=<YOUR DESIRED BACKEND PORT>`
 
 ## Execution Plan
 
