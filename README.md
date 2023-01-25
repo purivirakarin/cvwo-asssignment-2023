@@ -4,14 +4,6 @@
 | -------------------- | -------------------- |
 | Puri Virakarin       | A0266314H            |
 
-## Timeline
-
-December <br/>
-Learn: JS, TS, React.js, GO, mantine, tailwind
-
-January <br/>
-Working: on the project
-
 ## Technology
 
 - [React.js](https://reactjs.org/) + [TailwindCSS](https://tailwindcss.com/)
