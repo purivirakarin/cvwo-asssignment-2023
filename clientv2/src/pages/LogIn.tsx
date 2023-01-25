@@ -12,11 +12,11 @@ export default function LogIn() {
   const [password, setPassword] = useState('')
   const [errorMsg, setErrorMsg] = useState('')
 
-/**
- * We're using the fetch API to send a POST request to the backend, and if the response is not 400 or
- * 404, we're going to refetch the data and navigate to the home page
- * @param e - React.FormEvent - this is the event that is triggered when the form is submitted.
- */
+  /**
+   * We're using the fetch API to send a POST request to the backend, and if the response is not 400 or
+   * 404, we're going to refetch the data and navigate to the home page
+   * @param e - React.FormEvent - this is the event that is triggered when the form is submitted.
+   */
   const logIn = async (e: React.FormEvent) => {
     e.preventDefault()
 
@@ -26,8 +26,8 @@ export default function LogIn() {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'withCredentials': 'true',
         },
+        credentials: 'include',
         body: JSON.stringify({
           username,
           password,
