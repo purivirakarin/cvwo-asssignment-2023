@@ -3,6 +3,7 @@ package controller
 import (
 	"fmt"
 	"log"
+	"os"
 	"strconv"
 	"time"
 
@@ -84,6 +85,9 @@ func Login(c *fiber.Ctx) error {
 		Value:    token,
 		Expires:  time.Now().Add(time.Hour * 24),
 		HTTPOnly: true,
+		Secure: true,
+		SameSite: "none",
+		Domain: os.Getenv("FRONTEND"),
 	}
 	c.Cookie(&cookie)
 	return c.JSON(fiber.Map{
