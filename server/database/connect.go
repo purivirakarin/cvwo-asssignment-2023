@@ -23,7 +23,7 @@ func Connect() {
 	}
 	dsn := os.Getenv("DSN")
 	database, err := gorm.Open(mysql.Open(dsn), &gorm.Config{
-		//		DisableForeignKeyConstraintWhenMigrating: true,
+		DisableForeignKeyConstraintWhenMigrating: true,
 	})
 	if err != nil {
 		panic("Could not connect to the database")
