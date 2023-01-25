@@ -1,4 +1,4 @@
-# CVWO 2023 Web Forum
+# CVWO 2023 Web Forum - [CVForum](https://cvwo-asssignment-2023-ikjxdl5tq-purivirakarin.vercel.app/)
 
 | Name                 | Matriculation number |
 | -------------------- | -------------------- |
@@ -12,6 +12,42 @@ Learn: JS, TS, React.js, GO, mantine, tailwind
 January <br/>
 Working: on the project
 
+## Technology
+
+- [React.js](https://reactjs.org/) + [TailwindCSS](https://tailwindcss.com/)
+- [Go](https://www.golangprograms.com) + [GORM](https://gorm.io)
+- [MySQL](https://www.mysql.com) + [PlanetScale](https://planetscale.com)
+
+## Execution Plan
+
+#### Early December
+
+- Learn HTML + CSS
+- Learn JavaScript + TypeScript
+- Learn React App
+- Learn Relational Database
+- Take crash courses on building simple websites
+- Learn react tools (hooks, prebuilt components)
+- Learn TailwindCSS
+
+#### Late December
+
+- Learn basic of REST API
+- Learn Golang
+- Build more template web apps (follow the online tutorials and crash courses)
+
+#### Early January
+
+- Start building API with Go
+- Learn more techniques in Go app
+- Build a template frontend to interact with the backend
+
+#### Late January
+
+- Start building frontend version 2 (clientv2)
+- Learn more on TailwindCSS
+- Hosting
+- Integrate PlanetScale database to the project
 
 ## User Manual
 
