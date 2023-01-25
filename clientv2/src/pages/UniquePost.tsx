@@ -9,10 +9,10 @@ export default function UniquePost() {
   const [tag, setTag] = useState('All')
   const [posts, setPosts] = useState<Post[]>([])
 
-/**
- * It fetches the posts from the backend, and if the response is not 401, it sets the posts to the
- * posts that were fetched
- */
+  /**
+   * It fetches the posts from the backend, and if the response is not 401, it sets the posts to the
+   * posts that were fetched
+   */
   const fetchPosts = async () => {
     const response = await fetch(
       `${process.env.REACT_APP_BACKEND_URL}/api/uniquepost${
@@ -71,7 +71,9 @@ export default function UniquePost() {
                     <p className="text-xl font-semibold text-gray-900">
                       {post.Title}
                     </p>
-                    <p className="mt-3 text-base text-gray-500">{post.Desc.substring(0, 200)}</p>
+                    <p className="mt-3 text-base text-gray-500">
+                      {post.Desc.substring(0, 200)}
+                    </p>
                   </a>
                   <div className="mt-6 flex items-center">
                     <div className="flex-shrink-0">
