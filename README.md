@@ -4,6 +4,17 @@
 | -------------------- | -------------------- |
 | Puri Virakarin       | A0266314H            |
 
+## Remarks
+
+Frontend (Vercel)
+[https://cvwo-asssignment-2023-ikjxdl5tq-purivirakarin.vercel.app/](https://cvwo-asssignment-2023-ikjxdl5tq-purivirakarin.vercel.app/)
+
+Backend (Heroku)
+[https://cvwo-assignment-2023-backend.herokuapp.com](https://cvwo-assignment-2023-backend.herokuapp.com)
+
+The web does not owrk because heroku cannot save the cookie of the jwt user identification in the browser.
+However, all API do work fine. :)
+
 ## Technology
 
 - [React.js](https://reactjs.org/) + [TailwindCSS](https://tailwindcss.com/)
