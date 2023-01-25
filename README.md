@@ -13,7 +13,7 @@ Backend (Heroku)
 [https://cvwo-assignment-2023-backend.herokuapp.com](https://cvwo-assignment-2023-backend.herokuapp.com)
 
 The web frontend cannot connect with the backend because heroku cannot save the cookie of the jwt user identification in the browser.
-However, all API do work fine. :)
+However, all API do work fine. Please kindly clone this repository and run locally to let the program fully function.
 
 ## Technology
 
