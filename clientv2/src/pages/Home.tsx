@@ -9,10 +9,10 @@ export default function Home() {
   const [tag, setTag] = useState('All')
   const [posts, setPosts] = useState<Post[]>([])
 
- /**
-  * It fetches all the posts from the backend, and if the response is not 401, it sets the posts to the
-  * posts that were fetched
-  */
+  /**
+   * It fetches all the posts from the backend, and if the response is not 401, it sets the posts to the
+   * posts that were fetched
+   */
   const fetchPosts = async () => {
     const response = await fetch(
       `${process.env.REACT_APP_BACKEND_URL}/api/allpost${
@@ -50,7 +50,7 @@ export default function Home() {
             </div>
 
             <div className="mt-6 grid gap-8 pt-12 lg:grid-cols-3 lg:gap-x-5 lg:gap-y-12">
-              {posts.map((post) => (
+              {posts.reverse().map((post) => (
                 <div
                   key={post.id}
                   className="flex flex-col justify-between rounded-lg border border-gray-200 p-4 lg:p-6"

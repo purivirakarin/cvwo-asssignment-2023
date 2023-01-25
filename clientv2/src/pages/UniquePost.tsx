@@ -50,7 +50,7 @@ export default function UniquePost() {
             </div>
 
             <div className="mt-6 grid gap-8 pt-12 lg:grid-cols-3 lg:gap-x-5 lg:gap-y-12">
-              {posts.map((post) => (
+              {posts.reverse().map((post) => (
                 <div
                   key={post.id}
                   className="rounded-lg border border-gray-200 p-4 lg:p-6"
