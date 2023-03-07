@@ -6,6 +6,8 @@
 
 ## Remarks
 
+**Backend STOP**
+
 Frontend (Vercel)
 [https://cvwo-asssignment-2023-frontend.vercel.app/](https://cvwo-asssignment-2023-frontend.vercel.app/)
 
